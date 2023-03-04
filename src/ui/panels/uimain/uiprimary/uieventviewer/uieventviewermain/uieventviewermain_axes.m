@@ -64,6 +64,7 @@ classdef uieventviewermain_axes < TComponent
     end     % CONSTRUCTOR
     methods (Access = protected)
         function initialise(~)
+            uieventviewermain_timestamps();
             uieventviewermain_traces();
             uieventviewermain_select_single();
             uieventviewermain_select_multi();

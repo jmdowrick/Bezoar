@@ -83,11 +83,10 @@ classdef uisignalmain_axes < TComponent
     end     % CONSTRUCTOR
     methods (Access = protected)
         function initialise(~)
+            uisignalmain_timestamps();
             uisignalmain_traces();
-
             uisignalmain_query();
             uisignalmain_edit();
-
             uisignalmain_select();
         end
     end     % INITIALISE
