@@ -112,17 +112,17 @@ classdef uimenus < TComponent
                 'Accelerator', 'P', ...
                 'MenuSelectedFcn', @(~,~) d.uiview.toggleVisibilityProperty());
 
-            drawnow
-            jf = get(handle(w), 'JavaFrame'); %#ok<JAVFM> 
-            jmb = jf.fHG2Client.getMenuBar;
-            jm = jmb.getComponent(0);
-            jm.doClick;
-            drawnow
-            javax.swing.MenuSelectionManager.defaultManager().clearSelectedPath();
-            drawnow
-            jm = jm.getMenuComponent(1);
-            ja = javax.swing.KeyStroke.getKeyStroke('shift ctrl S');
-            jm.setAccelerator(ja);
+%             drawnow
+%             jf = get(handle(w), 'JavaFrame'); %#ok<JAVFM> 
+%             jmb = jf.fHG2Client.getMenuBar;
+%             jm = jmb.getComponent(0);
+%             jm.doClick;
+%             drawnow
+%             javax.swing.MenuSelectionManager.defaultManager().clearSelectedPath();
+%             drawnow
+%             jm = jm.getMenuComponent(1);
+%             ja = javax.swing.KeyStroke.getKeyStroke('shift ctrl S');
+%             jm.setAccelerator(ja);
         end
     end     % CONSTRUCTOR
 end
