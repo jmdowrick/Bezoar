@@ -109,6 +109,13 @@ classdef Bezoar < handle
                 
                 DataContainer.instance();
 
+                s = SplashScreen('Bezoar', 'bezoar512.png', ...
+                    'Border', 'on');
+                s.addText(20, 490, 'Loading Bezoar...', ...
+                    'FontSize', 12, ...
+                    'Color', 'w', ...
+                    'Shadow', 'off')
+
                 BezoarObject = Bezoar();
                 BezoarObject.initialise()
                 BezoarObject.initialiseObjects()
@@ -119,6 +126,10 @@ classdef Bezoar < handle
                 BezoarObject.FigureList = hl_next(~ismember(hl_next, hl_init));
                 BezoarObject.CloseListener = listener(BezoarObject.FigureList, ...
                     'Close', @(~,~) delete(BezoarObject));
+
+                set(findobj(BezoarObject.FigureList, 'Name', 'Bezoar'), ...
+                    'Visible', 'on')
+                delete(s)
             end
             obj = BezoarObject;
         end
