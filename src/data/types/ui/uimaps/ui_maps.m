@@ -3,7 +3,7 @@ classdef ui_maps < TData
         Name = "uimaps"
     end
     properties (Constant)
-        n_max = 3
+        n_max = 5
     end
     properties (SetObservable, SetAccess = private)
         selection           (1,:)   double = []
