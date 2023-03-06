@@ -1,4 +1,4 @@
-![](/src/ui/logos/bezoar512.png)
+![](/src/ui/logos/bezoar256.png)
 
 # Bezoar
 _Bezoar_ is a visualisation and data analysis software coded in MATLAB for high-resolution gastrointestinal electrophysiology recordings.
