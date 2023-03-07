@@ -78,11 +78,14 @@ classdef dc_cnfg < TData
     methods (Access = private)
         function createDefaultConfiguration(obj)
             n = obj.Data.prop.channels;
-            if (n == 64)
-                obj.createDefaultConfigurationSphere()
-            else
-                obj.createDefaultConfigurationFlat(n)
-            end
+
+            obj.createDefaultConfigurationFlat(n)
+
+%             if (n == 64)
+%                 obj.createDefaultConfigurationSphere()
+%             else
+%                 obj.createDefaultConfigurationFlat(n)
+%             end
         end
         function createDefaultConfigurationFlat(obj, n)
             sp = 4; % Default spacing

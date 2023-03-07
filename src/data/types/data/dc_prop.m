@@ -9,7 +9,7 @@ classdef dc_prop < TData
         samples         (1,1)   double  = 0
     end
   
-    methods (Access = ?DataContainer)
+    methods %(Access = ?DataContainer)
         function updatefile(obj)
             if obj.Data.file.isloaded
                 h = obj.Data.file.header;

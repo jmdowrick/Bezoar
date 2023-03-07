@@ -60,7 +60,8 @@ classdef DataContainer < dynamicprops
                     tic
                     try
                         f = "update";
-                        obj.Objects{i, 'Handle'}.(f)
+                        o = obj.Objects{i, 'Handle'};
+                        o.(f);
                         obj.Log(end + 1, :) = { ...
                             datetime, ...
                             i + "." + f + "()", ...
@@ -81,7 +82,8 @@ classdef DataContainer < dynamicprops
                         % Excute property.updateprop()
                         tic
                         try
-                            obj.Objects{j, 'Handle'}.(f)
+                            o = obj.Objects{j, 'Handle'};
+                            o.(f);
                             obj.Log(end + 1, :) = { ...
                                 datetime, ...
                                 j + "." + f + "()", ...

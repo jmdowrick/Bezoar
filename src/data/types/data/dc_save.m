@@ -71,7 +71,7 @@ classdef dc_save < TData
             end
         end
     end
-    methods (Access = ?DataContainer)
+    methods %(Access = ?DataContainer)
         function updatefile(obj)
             obj.issaved = false;
             obj.markForUpdate()

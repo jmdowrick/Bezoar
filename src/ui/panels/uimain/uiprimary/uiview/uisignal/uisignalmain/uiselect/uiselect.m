@@ -18,7 +18,7 @@ classdef uiselect < TComponent
             x = obj.Data.cnfg.x;
             y = obj.Data.cnfg.y;
 
-            sz_g = obj.Data.cnfg.size;
+            sz_g = obj.Data.cnfg.size([2 1]);
             sz_a = [range(x) range(y)];
 
             base = min(sz_a./(sz_g - 1));
