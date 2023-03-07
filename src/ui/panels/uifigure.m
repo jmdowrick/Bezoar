@@ -51,7 +51,46 @@ classdef uifigure < TComponent
 
                 ji = javax.swing.ImageIcon(fp);
                 jf.setFigureIcon(ji);
+                
+                jf = get(handle(obj.Handle), 'JavaFrame'); %#ok<JAVFM>
+                ja = jf.getAxisComponent();
+
+                DropListener(ja, ...
+                    'DropFcn', @(s, e) obj.onDrop(s, e), ...
+                    'DragEnterFcn', @(s, e) obj.onEnter(s, e));
             catch
+            end
+        end
+    end
+    methods (Access = private)
+        function onDrop(obj, ~, e)
+            d = e.GetTransferableData();
+            d = d.TransferAsFileList{1};
+
+            [path, file, ext] = fileparts(d);
+            switch ext
+                case '.bdf'
+                    obj.Data.file.importFile([file ext], path)
+                case '.mat'
+                    if obj.Data.file.isloaded
+                        obj.Data.save.loadFile([file ext], path)
+                    end
+                otherwise
+            end
+        end
+        function onEnter(obj, ~, e)
+            d = e.GetTransferableData();
+            d = d.TransferAsFileList{1};
+
+            [~, ~, ext] = fileparts(d);
+            switch ext
+                case '.bdf'
+                case '.mat'
+                    if ~obj.Data.file.isloaded
+                        e.RejectDrag()
+                    end
+                otherwise
+                    e.RejectDrag()
             end
         end
     end

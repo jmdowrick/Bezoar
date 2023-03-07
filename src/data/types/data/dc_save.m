@@ -54,6 +54,9 @@ classdef dc_save < TData
             [file, path] = uigetfile({'*.mat', 'MAT-files (*.mat)'}, ...
                 'Load Events', getFilePath(obj));
 
+            obj.loadFile(file, path)
+        end
+        function loadFile(obj, file, path)
             if ~(isequal(file, 0) || isequal(path, 0))
                 str = load(fullfile(path, file));
                 if ~isfield(str, 'header') || ~isequaln(str.header, obj.Data.file.header)

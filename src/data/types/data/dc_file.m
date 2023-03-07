@@ -26,6 +26,9 @@ classdef dc_file < TData
                 ... Default path
                 getFilePath(obj));
             
+            obj.importFile(file, path)
+        end
+        function importFile(obj, file, path)
             if ~or(isequal(0, file), isequal(0, path))
                 [data, status] = importbdf(path, file); 
                 
