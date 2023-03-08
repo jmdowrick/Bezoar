@@ -134,10 +134,10 @@ classdef dc_cnfg < TData
         function e = parseTXT(obj, fp)
             try
                 ar = readmatrix(fp);                % Read csv
-                nc = ar(2, 1);                      % Get number of channels
-                sz = [ar(2, 2) ar(2, 3)];           % Get electrode size
+                sz = [ar(2, 3) ar(2, 2)];           % Get electrode size
                 sp = ar(2, 4);                      % Get spacing
                 cf = ar((1:sz(1)) + 2, 1:sz(2));    % Get configuration
+                nc = max(cf(:));
                 
                 tf = isfinite(cf) & (cf > 0) & (cf <= nc);
 
