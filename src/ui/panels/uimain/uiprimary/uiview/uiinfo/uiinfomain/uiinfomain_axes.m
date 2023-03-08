@@ -30,7 +30,7 @@ classdef uiinfomain_axes < TComponent
         
         function traverseFcn(obj)
             cp = obj.CurrentPosition;
-            sz = obj.Data.cnfg.size;
+            sz = obj.Data.cnfg.size([2 1]);
 
             if all(cp > 0.5 & cp < sz + 0.5)
                 set(obj.rc, ...
