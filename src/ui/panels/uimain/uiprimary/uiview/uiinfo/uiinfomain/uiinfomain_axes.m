@@ -52,7 +52,7 @@ classdef uiinfomain_axes < TComponent
         end
         
         function mouseScroll(obj)            
-            sz = obj.Data.cnfg.size;
+            sz = obj.Data.cnfg.size([2 1]);
             cp = obj.CurrentPosition;
 
             if all(cp > 0.5 & cp < sz + 0.5)
@@ -91,7 +91,7 @@ classdef uiinfomain_axes < TComponent
                 'Position', get(obj.Window, 'CurrentPoint'))
         end
         function mouseAxesClickMiddle(obj)
-            sz = obj.Data.cnfg.size;
+            sz = obj.Data.cnfg.size([2 1]);
             cp = obj.CurrentPosition;
 
             if all(cp > 0.5 & cp < sz + 0.5)
