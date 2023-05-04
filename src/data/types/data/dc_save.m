@@ -63,7 +63,20 @@ classdef dc_save < TData
                     error('Invalid .mat file')
                 end
 
-                obj.Data.evnt.load(str.events)
+                e = [];
+
+                % Workaround for old save files
+                try
+                    e = str.events;
+                catch
+                end
+
+                try
+                    e = str.markers;
+                catch
+                end
+
+                obj.Data.evnt.load(e)
 
                 obj.file = file;
                 obj.path = path;

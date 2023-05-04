@@ -47,26 +47,23 @@ classdef dc_evnt < TData
     methods (Access = ?dc_save)
         function load(obj, e)
             f = obj.ns/size(e, 1);
-            if (f == 1)
-                obj.e = e;
-            else
-                [t, c, g] = find(e);
 
-                t = round((t - 1) * f) + 1;
-                t = min(max(t, 1), obj.ns);
+            [t, c, g] = find(e);
 
-                obj.e = sparse(t, c, g, obj.ns, obj.nc);
-                ng = max(g, [], 'all', 'omitnan'); %#ok<*PROPLC> 
-                if isempty(ng) || isnan(ng)
-                    ng = 0;
-                end
-                sz = [obj.nc ng];
+            t = round((t - 1) * f) + 1;
+            t = min(max(t, 1), obj.ns);
 
-                obj.ng = ng;
-                obj.tg = NaN(sz);
-                obj.tg(sub2ind(sz, c, g)) = t;
+            obj.e = sparse(t, c, g, obj.ns, obj.nc);
+            ng = max(g, [], 'all', 'omitnan'); %#ok<*PROPLC>
+            if isempty(ng) || isnan(ng)
+                ng = 0;
             end
-                
+            sz = [obj.nc ng];
+
+            obj.ng = ng;
+            obj.tg = NaN(sz);
+            obj.tg(sub2ind(sz, c, g)) = t;
+
             obj.update()
         end
     end
