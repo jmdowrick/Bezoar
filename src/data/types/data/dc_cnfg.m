@@ -161,7 +161,8 @@ classdef dc_cnfg < TData
         end
         function e = parseTOML(obj, fp)
             try
-                s = toml.read(fp);
+                m = toml.read(fp);
+                s = toml.map_to_struct(m);
                 f = fieldnames(s);
                 
                 % Find positions

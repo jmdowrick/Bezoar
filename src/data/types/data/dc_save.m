@@ -59,7 +59,7 @@ classdef dc_save < TData
         function loadFile(obj, file, path)
             if ~(isequal(file, 0) || isequal(path, 0))
                 str = load(fullfile(path, file));
-                if ~isfield(str, 'header') || ~isequaln(str.header, obj.Data.file.header)
+                if ~isfield(str, 'header') %|| ~isequaln(str.header, obj.Data.file.header)
                     error('Invalid .mat file')
                 end
 

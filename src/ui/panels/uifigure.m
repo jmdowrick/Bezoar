@@ -47,7 +47,7 @@ classdef uifigure < TComponent
 
             try
                 jf = get(handle(obj.Handle), 'JavaFrame'); %#ok<JAVFM>
-                fp = which('bezoar.png');
+                fp = which('bezoar256.png');
 
                 ji = javax.swing.ImageIcon(fp);
                 jf.setFigureIcon(ji);
