@@ -138,10 +138,10 @@ classdef DataContainer < dynamicprops
 
         function initialise(obj)
             % Find path containing data types
-            s = what('src/data/types');
+            s = what(fullfile('src','data','types'));
 
             % Create list of file names
-            fl = dir(fullfile(s.path, '**\*.*'));
+            fl = dir(fullfile(s.path, '**','*.*'));
             fl = fl(~[fl.isdir]);
 
             % Create table containing object handles
