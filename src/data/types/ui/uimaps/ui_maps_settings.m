@@ -29,8 +29,11 @@ classdef ui_maps_settings < TData
     methods (Access = protected)
         function updateFcn(obj)
             r_at = range(obj.Data.uimaps.at, [1 2]);
-
-            obj.cmap_at = flipud(autumn(ceil(max(r_at)/obj.interval)));
+            if isempty(r_at)
+                obj.cmap_at = autumn();
+            else
+                obj.cmap_at = flipud(autumn(ceil(max(r_at)/obj.interval)));
+            end
             obj.cmap_speed = cool();
         end
     end

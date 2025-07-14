@@ -67,7 +67,7 @@ classdef uiconfig_axes_sphere < TComponent
                 case 'flat'
                     set(allchild(obj.Handle), ...
                         'Visible', 'off')
-
+                    
                     obj.disableClickInteractions()
             end
         end
@@ -79,6 +79,11 @@ classdef uiconfig_axes_sphere < TComponent
         end
         function mouseDrag(obj)
             p = get(0, 'PointerLocation');
+
+            if isempty(obj.clicked)
+                return
+            end
+            
             v = obj.Handle.View + (obj.clicked - p);
             v(2) = max(min(v(2), +45), -60);
 

@@ -151,8 +151,9 @@ classdef al_velo < TData
 
             A = [Rn -ones(n, 1); ones(1, n) 0];
             b = [at(tf); 0];
-            x = A\b; 
 
+            x = A\b; 
+            
             c = x(1:end - 1);
             d = x(end);
 
@@ -176,8 +177,13 @@ classdef al_velo < TData
                 duda = (1/(4*pi))*dqdz.*dzda;
                 dude = (1/(4*pi))*dqdz.*dzde;
                 
-                Tx(i) = c'*(duda);
-                Ty(i) = c'*(dude);
+                try
+                    Tx(i) = c'*(duda);
+                    Ty(i) = c'*(dude);
+                catch 
+                    Tx(i) = c*(duda);
+                    Ty(i) = c*(dude);
+                end
                 Ty(i) = Ty(i)./sec(i);
             end
 
