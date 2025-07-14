@@ -40,6 +40,12 @@ classdef ui_info_velocities < TData
                 e_min = max(e_min, obj.min_vel);
                 e_max = min(e_max, obj.max_vel);
 
+                if (e_min > e_max)
+                   temp = e_max;
+                   e_max = e_min;
+                   e_min = temp;
+                end
+
                 e = e_min:obj.bin_width:e_max;
 
                 if (v_min < e_min)
