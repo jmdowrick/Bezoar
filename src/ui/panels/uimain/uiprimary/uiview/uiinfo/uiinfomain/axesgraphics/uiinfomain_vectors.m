@@ -48,8 +48,8 @@ classdef uiinfomain_vectors < TComponent
         end
         function updateuiview(obj)
             if ~strcmp(obj.Data.uiview.viewname, 'info')
-                obj.updateuiinfo()
-                obj.updateuiinfo_slct()
+                obj.updateuiinfo_velocities()
+                obj.updateuiinfo_selection()
                 return
             end
         end
