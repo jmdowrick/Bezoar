@@ -51,7 +51,7 @@ classdef uisignalmain_select < TComponent
 
                 c = obj.Data.uisign.indices;
 
-                tf = (c > 0) & (c < obj.Data.prop.channels);
+                tf = (c > 0) & (c <= obj.Data.prop.channels);
 
                 it = obj.Data.uiprvw.at(obj.Data.uisign.indices_grid);
                 it = round(it * obj.Data.filt.frequency) + 1;
