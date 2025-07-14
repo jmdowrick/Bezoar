@@ -77,7 +77,7 @@ classdef al_cont < TData
             end
 
             obj.padding = pd;
-            obj.size = obj.Data.cnfg.size + obj.padding;
+            obj.size = obj.Data.cnfg.size; % + obj.padding;
         end
     end
 end
